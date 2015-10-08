@@ -1,304 +1,163 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <!-- Always force latest IE rendering engine or request Chrome Frame -->
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <!-- Use title if it's in the page YAML frontmatter -->
-    <title>API Reference</title>
-
-    <link href="stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="javascripts/all.js" type="text/javascript"></script>
-
-    <script>
-      $(function() {
-        var toc = $("#toc").tocify({
-          selectors: "h1,h2",
-          extendPage: false,
-          theme: "none",
-          smoothScroll: false,
-          showEffectSpeed: 0,
-          hideEffectSpeed: 180,
-          ignoreSelector: ".toc-ignore",
-          hashGenerator: 'pretty',
-          highlightOffset: 60,
-          scrollTo: -2,
-          scrollHistory: true,
-          hashGenerator: function(text, element) {
-            return element[0].getAttribute('id');
-          }
-        }).data("toc-tocify");
-        // Hack to make already open sections to start opened,
-        // instead of displaying an ugly animation
-        setTimeout(function() {
-          toc.setOption("showEffectSpeed", 180);
-        },50);
-        setupLanguages([
-          
-            
-              
-                'shell',
-              
-            
-              
-                'ruby',
-              
-            
-              
-                'python',
-              
-            
-          
-        ]);
-      });
-    </script>
+    <title>dpSlate by pnerger</title>
   </head>
 
-  <body class="index">
-    <div class="tocify-wrapper">
-      <img src="images/logo.png" />
-      <div id="toc">
+  <body>
+    <header>
+      <div class="inner">
+        <h1>dpSlate</h1>
+        <h2>Beautiful static documentation for your API</h2>
+        <a href="https://github.com/pnerger/dpSlate" class="button"><small>View project on</small> GitHub</a>
       </div>
-      
-      <ul class="toc-footer">
-        
-          <li><a href='#'>Sign Up for a Developer Key</a></li>
-        
-          <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        
-      </ul>
-      
-    </div>
-    <div class="page-wrapper">
-      <div class="content">
-        <h1 id="introduction">Introduction</h1>
+    </header>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="dpslate" class="anchor" href="#dpslate" aria-hidden="true"><span class="octicon octicon-link"></span></a>dpSlate</h1>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>dpSlate helps you create beautiful single-page API documentation. Think of it as an intelligent, responsive documentation template for your API. This variation is based upon the Slate work done by Tripit which in turn was inspired by the API documentation by Stripe.</p>
 
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p><img src="https://rawgithub.com/pnerger/dpSlate/dpSlate/source/images/dpSlate.png" alt="Sample Screenshot of Format"></p>
 
-<h1 id="authentication">Authentication</h1>
+<p><a href="http://rawgithub.com/pnerger/dpSlate/dpSlate/build/index.html">View the live, interactive document now!</a></p>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</pre><pre class="highlight python"><span class="kn">import</span> <span class="s">'kittn'</span>
+<ul>
+<li><p><strong>Clean, intuitive design</strong> — with dpSlate, the description of your API is on the left side of your documentation, and all the code examples are on the right side. Inspired by <a href="https://stripe.com/docs/api">Stripe's</a> API docs. In addition to the design you see on screen, dpSlate comes with a print stylesheet, so your API docs look great on paper.</p></li>
+<li><p><strong>Everything on a single page</strong> — gone are the days where your users had to search through a million pages to find what they wanted. Slate puts the entire documentation on a single page. We haven't sacrificed linkability, though. As you scroll, your browser's hash will update to the nearest header, so linking to a particular point in the documentation is still natural and easy.</p></li>
+<li><p><strong>Optional Two Column Layout</strong> - would you rather have your code samples inline with the content?  With a simple directive you can change the layout such that you get what you want.</p></li>
+<li><p><strong>Slate is just Markdown</strong> — when you write docs with Slate, you're just writing Markdown, which makes it simple to edit and understand. Everything is written in Markdown — even the code samples are just Markdown code blocks!</p></li>
+<li><p><strong>Write code samples in multiple languages</strong> — if your API has bindings in multiple programming languages, you easily put in tabs to switch between them. In your document, you'll distinguish different languages by specifying the language name at the top of each code block, just like with Github Flavored Markdown!</p></li>
+<li><p><strong>Out-of-the-box syntax highlighting</strong> for <a href="http://rouge.jayferd.us/demo">almost 60 languages</a>, no configuration required.</p></li>
+<li><p><strong>Title Page</strong> The title of the document is displayed at the very top (but not in the Table of Contents).  Below this is a small <em>about</em> button, when you press this the full Title Page is displayed.  Title Page data comes from the directives that you place in your Markdown file plus the date of publication is automatically calculated based upon when you built the document.</p></li>
+<li><p><strong>Document Search</strong> above the table of contents, is a search box that performs search of the entire document.  It will tell you how many hits you had and provide a <em>next</em> and <em>prev</em> button to walk you through the results.</p></li>
+<li><p><strong>Automatic, smoothly scrolling table of contents</strong> on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.</p></li>
+</ul>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">Kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</pre><pre class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>Getting starting with Slate is super easy! Simply fork this repository, and then follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the <em>[Authoring a API Tutorial Using dpSlate]</em>(<a href="http://rawgithub.com/pnerger/dpSlate/build/index.html">http://rawgithub.com/pnerger/dpSlate/build/index.html</a>)</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<h2>
+<a id="getting-started-with-slate" class="anchor" href="#getting-started-with-slate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started with Slate</h2>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<h3>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h3>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p>You're going to need:</p>
 
-<p><aside class="notice">
-You must replace <code class="prettyprint">meowmeowmeow</code> with your personal API key.
-</aside></p>
+<ul>
+<li>
+<strong>Linux or OS X</strong> — Windows will probably work, but is unsupported.</li>
+<li><strong>Ruby, version 1.9.3 or newer</strong></li>
+<li>
+<strong>Bundler</strong> — If Ruby is already installed, but the <code>bundle</code> command doesn't work, just run <code>gem install bundler</code> in a terminal.</li>
+</ul>
 
-<h1 id="kittens">Kittens</h1>
+<h3>
+<a id="getting-set-up" class="anchor" href="#getting-set-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Set Up</h3>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
+<ol>
+<li>Fork this repository on Github.</li>
+<li>Clone <em>your forked repository</em> (not our original one) to your hard drive with <code>git clone https://github.com/YOURUSERNAME/dpSlate.git</code>
+</li>
+<li><code>cd dpSlate</code></li>
+<li>Install all dependencies: <code>bundle install</code>
+</li>
+<li>Start the test server: <code>bundle exec middleman server</code>
+</li>
+</ol>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</pre><pre class="highlight python"><span class="kn">import</span> <span class="s">'kittn'</span>
+<p>Or use the included Dockerfile! (must install Docker first)</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">Kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</pre><pre class="highlight shell">curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></pre>
-<p>This endpoint retrieves all kittens.</p>
+<div class="highlight highlight-source-shell"><pre>docker build -t slate <span class="pl-c1">.</span>
+docker run -d -p 4567:4567 --name slate -v <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-c1">pwd</span><span class="pl-pds">)</span></span>/source:/app/source slate</pre></div>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>You can now see the docs at <a href="http://localhost:4567">http://localhost:4567</a>. Whoa! That was fast!</p>
 
-<p><code class="prettyprint">GET http://example.com/kittens</code></p>
+<p><em>Note: if you're using the Docker setup on OSX, the docs will be availalable at the output of <code>boot2docker ip</code> instead of <code>localhost:4567</code>.</em></p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<p>Now that Slate is all set up your machine, you'll probably want to learn more about <a href="https://github.com/tripit/slate/wiki/Markdown-Syntax">editing Slate markdown</a>, or <a href="https://github.com/tripit/slate/wiki/Deploying-Slate">how to publish your docs</a>.</p>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<h3>
+<a id="alternative-setup-with-docker" class="anchor" href="#alternative-setup-with-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alternative Setup with Docker</h3>
 
-<p><aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside></p>
+<div class="highlight highlight-source-shell"><pre>docker build -t slate <span class="pl-c1">.</span>
+docker run -d -p 4567:4567 slate</pre></div>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>You can now see the docs at <a href="http://localhost:4567">http://localhost:4567</a>. Whoa! That was fast!</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre><pre class="highlight python"><span class="kn">import</span> <span class="s">'kittn'</span>
+<p><em>Note: if you're using the Docker setup on OSX, the docs will be
+availalable at the output of <code>boot2docker ip</code> instead of <code>localhost:4567</code>.</em></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">Kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre><pre class="highlight shell">curl <span class="s2">"http://example.com/api/kittens/3"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<h2>
+<a id="learn-how-to-create-a-dpslate-api-document" class="anchor" href="#learn-how-to-create-a-dpslate-api-document" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learn How to Create a dpSlate API Document</h2>
 
-<p><aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside></p>
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>dpSlate was forked from TripIt slate and enhanced by Paul Nerger of <a href="http://www.developerprogram.com">DeveloperProgram.com</a>.</p>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>Thanks to the following people who have submitted major pull requests to TripIt Slate:</p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<ul>
+<li>
+<a href="https://lord.io">Robert Lord</a> who built the original Slate while at <a href="http://tripit.com">TripIt</a>.</li>
+<li><a href="https://github.com/chrissrogers">@chrissrogers</a></li>
+<li><a href="https://github.com/bootstraponline">@bootstraponline</a></li>
+<li><a href="https://github.com/realityking">@realityking</a></li>
+</ul>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the cat to retrieve</td>
-</tr>
-</tbody></table>
+<h2>
+<a id="special-thanks" class="anchor" href="#special-thanks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Special Thanks</h2>
 
-<h1 id="errors">Errors</h1>
+<ul>
+<li><a href="https://github.com/tripit/slate">Tripit Slate</a></li>
+<li><a href="https://github.com/middleman/middleman">Middleman</a></li>
+<li><a href="https://github.com/gfranko/jquery.tocify.js">jquery.tocify.js</a></li>
+<li><a href="https://github.com/middleman/middleman-syntax">middleman-syntax</a></li>
+<li><a href="https://github.com/neo/middleman-gh-pages">middleman-gh-pages</a></li>
+<li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+<li><a href="https://github.com/chrissrogers">@chrissrogers</a></li>
+<li><a href="https://github.com/bootstraponline">@bootstraponline</a></li>
+<li>
+<a href="https://developer.cisco.com">Cisco DevNet</a> who use dpSlate in the great work that they do in supporting Developers.</li>
+</ul>
+        </section>
 
-<p>The Kittn API uses the following error codes:</p>
+        <aside id="sidebar">
+          <a href="https://github.com/pnerger/dpSlate/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pnerger/dpSlate/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slown down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
+          <p class="repo-owner"><a href="https://github.com/pnerger/dpSlate"></a> is maintained by <a href="https://github.com/pnerger">pnerger</a>.</p>
 
-      </div>
-      <div class="dark-box">
-        <div id="lang-selector">
-          
-            
-              
-                <a href="#" data-language-name="shell">shell</a>
-              
-            
-              
-                <a href="#" data-language-name="ruby">ruby</a>
-              
-            
-              
-                <a href="#" data-language-name="python">python</a>
-              
-            
-          
-        </div>
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
+
+  
   </body>
 </html>
